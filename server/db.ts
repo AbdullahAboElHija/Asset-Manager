@@ -1,17 +1,25 @@
 import mongoose from "mongoose";
 
-const MONGODB_URI = process.env.MONGODB_URI;
-if (!MONGODB_URI) {
-  throw new Error("MONGODB_URI environment variable is not set");
-}
+let isConnected = false;
 
-mongoose.connect(MONGODB_URI, {
-  serverSelectionTimeoutMS: 10000,
-}).then(() => {
-  console.log("Connected to MongoDB");
-}).catch((err) => {
-  console.error("MongoDB connection error:", err.message);
-});
+export async function connectDB() {
+  if (isConnected) return;
+  
+  const MONGODB_URI = process.env.MONGODB_URI;
+  if (!MONGODB_URI) {
+    throw new Error("MONGODB_URI environment variable is not set");
+  }
+
+  try {
+    await mongoose.connect(MONGODB_URI, {
+      serverSelectionTimeoutMS: 10000,
+    });
+    console.log("Connected to MongoDB");
+    isConnected = true;
+  } catch (err: any) {
+    console.error("MongoDB connection error:", err.message);
+  }
+}
 
 const projectSchema = new mongoose.Schema({
   titleEn: { type: String, required: true },
