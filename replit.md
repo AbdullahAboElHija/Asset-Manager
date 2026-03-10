@@ -1,12 +1,12 @@
 # Itqan Agency - Landing Page & Portfolio
 
 ## Overview
-A bilingual (EN/AR/HE) landing page for Itqan Agency, a Software House & AI Agency. Features a strict geometric design following the brand style guide with Electric Blue (#2563EB), Midnight Black (#0B1121), and Pure White (#FFFFFF).
+A trilingual (EN/AR/HE) landing page for Itqan Agency, a Software House & AI Agency. Features a strict geometric design following the brand style guide with Electric Blue (#2563EB), Midnight Black (#0B1121), and Pure White (#FFFFFF).
 
 ## Architecture
 - **Frontend**: React + Vite + Tailwind CSS v4 + wouter routing
 - **Backend**: Express.js with REST API
-- **Database**: PostgreSQL with Drizzle ORM
+- **Database**: MongoDB Atlas with Mongoose ODM
 - **Fonts**: Inter (English), Cairo (Arabic), Heebo (Hebrew)
 
 ## Pages
@@ -22,15 +22,15 @@ A bilingual (EN/AR/HE) landing page for Itqan Agency, a Software House & AI Agen
 - `DELETE /api/projects/:id` - Admin: delete project (requires Bearer token)
 
 ## Key Files
-- `shared/schema.ts` - Drizzle schema (projects table)
-- `server/db.ts` - Database connection
-- `server/storage.ts` - Storage interface (DatabaseStorage)
+- `shared/schema.ts` - Zod schemas and TypeScript types (Project, InsertProject)
+- `server/db.ts` - Mongoose connection and Project model
+- `server/storage.ts` - Storage interface (DatabaseStorage with Mongoose)
 - `server/routes.ts` - API routes with admin middleware
 - `client/src/contexts/LanguageContext.tsx` - Language switching (EN/AR/HE)
 - `client/src/lib/api.ts` - Admin auth helpers (sessionStorage token)
 
 ## Environment Variables
-- `DATABASE_URL` - PostgreSQL connection string
+- `MONGODB_URI` - MongoDB Atlas connection string
 - `ADMIN_PASSWORD` - Password for the admin panel
 
 ## Design Rules
@@ -38,3 +38,7 @@ A bilingual (EN/AR/HE) landing page for Itqan Agency, a Software House & AI Agen
 - Flat vector design with strict geometry
 - High contrast borders (4px black)
 - Brand colors only: Electric Blue, Midnight Black, Pure White
+
+## Deployment
+- See `.agents/skills/vercel-deployment/SKILL.md` for Vercel deployment instructions
+- MongoDB Atlas IP whitelist must include `0.0.0.0/0` for cloud deployments
