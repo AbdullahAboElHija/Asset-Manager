@@ -159,13 +159,23 @@ function AdminDashboard() {
         method: "POST",
         body: JSON.stringify(data),
       });
-      if (!res.ok) throw new Error("Failed to create project");
+      if (!res.ok) {
+        const err = await res.json();
+        let msg = err.message || "Failed to create project";
+        if (err.errors?.fieldErrors) {
+          msg += ": " + Object.keys(err.errors.fieldErrors).join(", ") + " cannot be empty.";
+        }
+        throw new Error(msg);
+      }
       return res.json();
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["/api/projects"] });
       setShowForm(false);
     },
+    onError: (error: Error) => {
+      alert(error.message);
+    }
   });
 
   const updateMutation = useMutation({
@@ -174,13 +184,23 @@ function AdminDashboard() {
         method: "PATCH",
         body: JSON.stringify(data),
       });
-      if (!res.ok) throw new Error("Failed to update project");
+      if (!res.ok) {
+        const err = await res.json();
+        let msg = err.message || "Failed to update project";
+        if (err.errors?.fieldErrors) {
+          msg += ": " + Object.keys(err.errors.fieldErrors).join(", ") + " cannot be empty.";
+        }
+        throw new Error(msg);
+      }
       return res.json();
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["/api/projects"] });
       setEditingProject(null);
     },
+    onError: (error: Error) => {
+      alert(error.message);
+    }
   });
 
   const deleteMutation = useMutation({
