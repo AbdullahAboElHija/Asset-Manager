@@ -1,0 +1,47 @@
+1. Hero Section (Headline + Subheadline + CTA)
+Prompt to use:
+"Act as an expert B2B tech copywriter. Write a bilingual Hero section (in English and Arabic) for Itqan Agency, a modern Software House | AI Agency
+.
+Visual Context: The brand uses a high-contrast palette of Electric Blue (#2563EB), Midnight Black (#0B1121), and Pure White (#FFFFFF), and uses Inter (English) and Cairo (Arabic) fonts
+.
+Tone of Voice: Mirror the brand's design rules ('strict geometry, no gradients, no shadows'
+). The copy must be clean, highly precise, direct, and completely free of exaggerated marketing fluff.
+Headline: Punchy and focused on digital mastery and precise execution.
+Subheadline: Briefly explain that we build intelligent software and AI-driven solutions to scale businesses.
+CTA: A strong, action-oriented button for our exclusive launch offer."
+2. Services Section (AI Automation, Web Development, Data Solutions)
+Prompt to use:
+"Write the 'Our Services' section for Itqan Agency in both English and Arabic. We provide three core services: AI Automation, Web Development, and Data Solutions.
+Formatting: Follow a 'uniform line weight' and 'strict geometry' philosophy
+—meaning the copy for each of the three services should be structurally identical in length and format.
+Content: Provide a short, benefit-driven title and a precise 2-sentence description for each. Focus on streamlining operations (AI), building scalable web apps (Web), and extracting actionable insights (Data). Keep the tone authoritative and straightforward."
+3. About Us / Team Section (Hybrid Model)
+Prompt to use:
+"Write the 'About Us / Our Team' section for Itqan Agency (إتقان)
+. Our unique differentiator is our hybrid talent model: projects are architected by seasoned, senior tech experts and executed by top-tier university graduates.
+Tone: Trustworthy, transparent, and structurally sound. Avoid any corporate jargon.
+Messaging: Explain how this model acts as a 'flat vector'
+ for their business—cutting out unnecessary agency bloat and complexity, while delivering enterprise-level architecture (from seniors) and agile, cost-efficient innovation (from graduates). Provide the output in English and Arabic."
+4. Why Choose Us / Value Proposition Section
+Prompt to use:
+"Draft a bilingual (English and Arabic) 'Why Choose Itqan?' value proposition section. Highlight 3 key pillars that make us the ideal Software House | AI Agency
+. Use the following themes, aligning them with our brand's strict, no-nonsense identity:
+Mastery & Precision (إتقان): Flawless code and AI implementation with 'strict geometry'
+—no messy workarounds.
+The Hybrid Advantage: Veteran leadership combined with brilliant emerging talent.
+Transparent Execution: No smoke and mirrors (mirroring our design rule of 'no shadows, no gradients'
+). Just clear, future-proof AI and software solutions."
+5. Pricing / Offer Section (75% Launch Discount)
+Prompt to use:
+"Write a high-converting 'Special Launch Offer' section for Itqan Agency in both English and Arabic.
+The Offer: An exclusive 75% discount on the first 3 projects we take on.
+The Angle: Frame this as a 'Founding Client Partnership'. We are looking for three visionary businesses to get premium services at a fraction of the cost, in exchange for helping us build our portfolio.
+Tone: Urgent but highly professional. The text will sit on a Midnight Black (#0B1121) background with an Electric Blue (#2563EB) CTA button
+, so the copy should feel bold, premium, and exclusive."
+6. Contact / Free Consultation CTA
+Prompt to use:
+"Write a brief, high-impact 'Contact Us' section in English and Arabic designed to drive lead generation.
+Goal: Get the visitor to book a Free Consultation or discovery call to explore AI or custom software solutions.
+Style: Keep it incredibly clean and minimal, just like the brand's 'standalone icon mark' rule
+.
+Fields to include: Name, Business Email, Project Type. Include a persuasive, direct CTA button.
