@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import MainLogo from "@assets/MainLogo-Photoroom_1773169618081.png";
+import MainLogo from "@assets/OnlyLogo-Photoroom_1773170349439.png";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Link } from "wouter";
 
@@ -21,11 +21,11 @@ export function Navbar() {
         {/* Logo Area */}
         <Link href="/">
           <a className="flex items-center gap-4 cursor-pointer group">
-            <div className="w-16 h-16 flex items-center justify-center p-1 transition-colors">
+            <div className="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center transition-transform group-hover:scale-105 duration-300">
               <img src={MainLogo} alt="Itqan Agency Logo" className="w-full h-full object-contain" />
             </div>
             <div className="hidden lg:flex flex-col">
-              <span className="font-extrabold uppercase tracking-tight text-xl leading-none">Itqan Agency</span>
+              <span className="font-extrabold uppercase tracking-tight text-xl leading-none" style={{ fontFamily: 'Inter, sans-serif' }}>Itqan Agency</span>
             </div>
           </a>
         </Link>
