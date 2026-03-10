@@ -34,7 +34,17 @@ export function Navbar() {
     <nav className="border-b-4 border-foreground bg-background sticky top-0 z-50">
       <div className="container px-4 mx-auto flex items-center justify-between py-4">
         
-        <Link href="/" onClick={closeMobileMenu} className="flex items-center gap-4 cursor-pointer group">
+        <Link 
+          href="/" 
+          onClick={(e) => {
+            if (location === '/') {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }
+            closeMobileMenu();
+          }} 
+          className="flex items-center gap-4 cursor-pointer group"
+        >
           <div className="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center transition-transform group-hover:scale-105 duration-300">
             <img src={MainLogo} alt="Itqan Agency Logo" className="w-full h-full object-contain" />
           </div>
