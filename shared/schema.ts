@@ -1,24 +1,19 @@
-import { sql } from "drizzle-orm";
-import { pgTable, text, varchar, serial, integer } from "drizzle-orm/pg-core";
-import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
-export const projects = pgTable("projects", {
-  id: serial("id").primaryKey(),
-  titleEn: text("title_en").notNull(),
-  titleAr: text("title_ar").notNull(),
-  titleHe: text("title_he").notNull(),
-  descEn: text("desc_en").notNull(),
-  descAr: text("desc_ar").notNull(),
-  descHe: text("desc_he").notNull(),
-  category: text("category").notNull(),
-  imageUrl: text("image_url").notNull(),
-  sortOrder: integer("sort_order").notNull().default(0),
-});
-
-export const insertProjectSchema = createInsertSchema(projects).omit({
-  id: true,
+export const insertProjectSchema = z.object({
+  titleEn: z.string().min(1),
+  titleAr: z.string().min(1),
+  titleHe: z.string().min(1),
+  descEn: z.string().min(1),
+  descAr: z.string().min(1),
+  descHe: z.string().min(1),
+  category: z.string().min(1),
+  imageUrl: z.string().min(1),
+  sortOrder: z.number().int().default(0),
 });
 
 export type InsertProject = z.infer<typeof insertProjectSchema>;
-export type Project = typeof projects.$inferSelect;
+
+export interface Project extends InsertProject {
+  _id: string;
+}

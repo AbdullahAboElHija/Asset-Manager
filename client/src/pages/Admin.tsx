@@ -169,7 +169,7 @@ function AdminDashboard() {
   });
 
   const updateMutation = useMutation({
-    mutationFn: async ({ id, data }: { id: number; data: Partial<InsertProject> }) => {
+    mutationFn: async ({ id, data }: { id: string; data: Partial<InsertProject> }) => {
       const res = await adminFetch(`/api/projects/${id}`, {
         method: "PATCH",
         body: JSON.stringify(data),
@@ -184,7 +184,7 @@ function AdminDashboard() {
   });
 
   const deleteMutation = useMutation({
-    mutationFn: async (id: number) => {
+    mutationFn: async (id: string) => {
       const res = await adminFetch(`/api/projects/${id}`, { method: "DELETE" });
       if (!res.ok) throw new Error("Failed to delete project");
       return res.json();
@@ -241,15 +241,15 @@ function AdminDashboard() {
         ) : (
           <div className="space-y-4">
             {projects.map((project) => (
-              <div key={project.id}>
-                {editingProject?.id === project.id ? (
+              <div key={project._id}>
+                {editingProject?._id === project._id ? (
                   <ProjectForm
                     project={project}
-                    onSave={(data) => updateMutation.mutate({ id: project.id, data })}
+                    onSave={(data) => updateMutation.mutate({ id: project._id, data })}
                     onCancel={() => setEditingProject(null)}
                   />
                 ) : (
-                  <div className="bg-background border-4 border-foreground p-4 md:p-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4" data-testid={`row-project-${project.id}`}>
+                  <div className="bg-background border-4 border-foreground p-4 md:p-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4" data-testid={`row-project-${project._id}`}>
                     <div className="flex items-center gap-4 flex-1 min-w-0">
                       {project.imageUrl && (
                         <div className="w-16 h-16 border-2 border-foreground flex-shrink-0 overflow-hidden hidden sm:block">
@@ -262,10 +262,10 @@ function AdminDashboard() {
                       </div>
                     </div>
                     <div className="flex gap-2 flex-shrink-0">
-                      <button onClick={() => setEditingProject(project)} className="p-2 border-2 border-primary text-primary hover:bg-primary hover:text-white transition-colors" data-testid={`button-edit-${project.id}`}>
+                      <button onClick={() => setEditingProject(project)} className="p-2 border-2 border-primary text-primary hover:bg-primary hover:text-white transition-colors" data-testid={`button-edit-${project._id}`}>
                         <Edit2 className="w-4 h-4" />
                       </button>
-                      <button onClick={() => { if (confirm("Delete this project?")) deleteMutation.mutate(project.id); }} className="p-2 border-2 border-destructive text-destructive hover:bg-destructive hover:text-white transition-colors" data-testid={`button-delete-${project.id}`}>
+                      <button onClick={() => { if (confirm("Delete this project?")) deleteMutation.mutate(project._id); }} className="p-2 border-2 border-destructive text-destructive hover:bg-destructive hover:text-white transition-colors" data-testid={`button-delete-${project._id}`}>
                         <Trash2 className="w-4 h-4" />
                       </button>
                     </div>

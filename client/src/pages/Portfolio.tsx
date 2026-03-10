@@ -43,7 +43,7 @@ export default function Portfolio() {
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {projects.map((project) => (
-                <div key={project.id} className="border-4 border-foreground group cursor-pointer bg-background hover:bg-foreground hover:text-background transition-colors duration-300" data-testid={`card-project-${project.id}`}>
+                <div key={project._id} className="border-4 border-foreground group cursor-pointer bg-background hover:bg-foreground hover:text-background transition-colors duration-300" data-testid={`card-project-${project._id}`}>
                   <div className="h-48 border-b-4 border-foreground overflow-hidden">
                     <img src={project.imageUrl} alt={getTitle(project)} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 transform group-hover:scale-105" />
                   </div>

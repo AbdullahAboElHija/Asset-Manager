@@ -42,3 +42,8 @@ waitForPort = 5000
 [agent]
 stack = "MOCKUP_JS"
 mockupState = "FULLSTACK"
+
+[userenv]
+
+[userenv.shared]
+MONGODB_URI = "mongodb+srv://hija368_db_user:Xjs5ZYS3di5xU1to@cluster0.i7ktimt.mongodb.net/?appName=Cluster0"

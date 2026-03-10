@@ -22,13 +22,11 @@ export async function registerRoutes(
   app: Express
 ): Promise<Server> {
 
-  // Public: get all projects
   app.get("/api/projects", async (_req, res) => {
     const projects = await storage.getProjects();
     res.json(projects);
   });
 
-  // Admin: verify password
   app.post("/api/admin/login", (req, res) => {
     const { password } = req.body;
     if (password === process.env.ADMIN_PASSWORD) {
@@ -38,7 +36,6 @@ export async function registerRoutes(
     }
   });
 
-  // Admin: create project
   app.post("/api/projects", requireAdmin, async (req, res) => {
     const parsed = insertProjectSchema.safeParse(req.body);
     if (!parsed.success) {
@@ -49,13 +46,8 @@ export async function registerRoutes(
     res.status(201).json(project);
   });
 
-  // Admin: update project
   app.patch("/api/projects/:id", requireAdmin, async (req, res) => {
-    const id = parseInt(req.params.id);
-    if (isNaN(id)) {
-      res.status(400).json({ message: "Invalid project ID" });
-      return;
-    }
+    const { id } = req.params;
     const project = await storage.updateProject(id, req.body);
     if (!project) {
       res.status(404).json({ message: "Project not found" });
@@ -64,13 +56,8 @@ export async function registerRoutes(
     res.json(project);
   });
 
-  // Admin: delete project
   app.delete("/api/projects/:id", requireAdmin, async (req, res) => {
-    const id = parseInt(req.params.id);
-    if (isNaN(id)) {
-      res.status(400).json({ message: "Invalid project ID" });
-      return;
-    }
+    const { id } = req.params;
     const deleted = await storage.deleteProject(id);
     if (!deleted) {
       res.status(404).json({ message: "Project not found" });
