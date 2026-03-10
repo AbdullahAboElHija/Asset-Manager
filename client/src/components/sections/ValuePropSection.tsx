@@ -7,18 +7,24 @@ export function ValuePropSection() {
       descEn: "Flawless code and AI implementation with strict geometry. We do not do messy workarounds.",
       titleAr: "الإتقان والدقة",
       descAr: "كود خالٍ من العيوب وتنفيذ دقيق للذكاء الاصطناعي. نحن لا نقبل بالحلول المؤقتة الفوضوية.",
+      titleHe: "מומחיות ודיוק",
+      descHe: "קוד ללא רבב ויישום בינה מלאכותית עם גיאומטריה קפדנית. אנחנו לא עושים מעקפים מבולגנים.",
     },
     {
       titleEn: "The Hybrid Advantage",
       descEn: "Veteran leadership combining enterprise experience with brilliant, agile emerging talent.",
       titleAr: "الميزة الهجينة",
       descAr: "قيادة مخضرمة تجمع بين الخبرة المؤسسية والمواهب الناشئة الذكية والمرنة.",
+      titleHe: "היתרון ההיברידי",
+      descHe: "מנהיגות ותיקה המשלבת ניסיון ארגוני עם כישרון עולה מבריק וזריז.",
     },
     {
       titleEn: "Transparent Execution",
       descEn: "No smoke and mirrors. Just clear, future-proof AI and software solutions built for scale.",
       titleAr: "تنفيذ شفاف",
       descAr: "لا يوجد خداع أو إخفاء. فقط حلول ذكاء اصطناعي وبرمجيات واضحة ومستقبلية مصممة للتوسع.",
+      titleHe: "ביצוע שקוף",
+      descHe: "ללא עשן ומראות. רק פתרונות בינה מלאכותית ותוכנה ברורים ומוכנים לעתיד שנבנו להתרחבות.",
     }
   ];
 
@@ -26,11 +32,17 @@ export function ValuePropSection() {
     <section className="py-24 border-b-4 border-foreground bg-background">
       <div className="container px-4 mx-auto">
         <div className="text-center mb-16 space-y-4">
-          <h2 className="text-4xl font-extrabold uppercase tracking-tight">Why Choose Itqan? <span className="text-primary px-4">|</span> <span className="font-ar">لماذا إتقان؟</span></h2>
+          <h2 className="text-2xl md:text-4xl font-extrabold uppercase tracking-tight flex flex-col lg:flex-row items-center justify-center gap-4">
+            <span>Why Choose Itqan?</span> 
+            <span className="text-primary hidden lg:inline">|</span> 
+            <span className="font-ar">لماذا إتقان؟</span>
+            <span className="text-primary hidden lg:inline">|</span> 
+            <span className="font-he">למה לבחור באיתקאן?</span>
+          </h2>
           <div className="w-24 h-2 bg-primary mx-auto"></div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {pillars.map((pillar, idx) => (
             <div key={idx} className="border-4 border-foreground p-8 relative overflow-hidden group hover:border-primary transition-colors duration-300">
               {/* Decorative square corner */}
@@ -46,9 +58,16 @@ export function ValuePropSection() {
                 
                 <div className="w-full h-1 bg-foreground/10"></div>
                 
-                <div className="space-y-4 text-right font-ar">
-                  <h3 className="text-2xl font-bold">{pillar.titleAr}</h3>
+                <div className="space-y-4 text-right font-ar" dir="rtl">
+                  <h3 className="text-xl md:text-2xl font-bold">{pillar.titleAr}</h3>
                   <p className="text-muted-foreground font-medium text-lg">{pillar.descAr}</p>
+                </div>
+
+                <div className="w-full h-1 bg-foreground/10"></div>
+                
+                <div className="space-y-4 text-right font-he" dir="rtl">
+                  <h3 className="text-xl md:text-2xl font-bold">{pillar.titleHe}</h3>
+                  <p className="text-muted-foreground font-medium text-lg">{pillar.descHe}</p>
                 </div>
               </div>
             </div>

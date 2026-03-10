@@ -6,6 +6,7 @@
 @theme inline {
   --font-sans: 'Inter', sans-serif;
   --font-arabic: 'Cairo', sans-serif;
+  --font-hebrew: 'Heebo', sans-serif;
 
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
@@ -87,5 +88,8 @@
   /* Mixed language support utility classes */
   .font-ar {
     @apply font-arabic;
+  }
+  .font-he {
+    @apply font-hebrew;
   }
 }

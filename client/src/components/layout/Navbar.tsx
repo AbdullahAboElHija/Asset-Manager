@@ -11,9 +11,13 @@ export function Navbar() {
           <div className="w-12 h-12 flex items-center justify-center">
             <img src={MainLogo} alt="Itqan Agency Logo" className="h-full object-contain" />
           </div>
-          <div className="hidden md:flex flex-col">
-            <span className="font-extrabold uppercase tracking-tight text-xl leading-none">Itqan Agency</span>
-            <span className="font-ar font-bold text-lg leading-none">إتقان</span>
+          <div className="hidden lg:flex flex-col">
+            <span className="font-extrabold uppercase tracking-tight text-xl leading-none mb-1">Itqan Agency</span>
+            <div className="flex gap-3">
+              <span className="font-ar font-bold text-base leading-none text-primary">إتقان</span>
+              <span className="w-1 h-1 rounded-full bg-foreground my-auto"></span>
+              <span className="font-he font-bold text-base leading-none text-primary">איתקאן</span>
+            </div>
           </div>
         </div>
 
