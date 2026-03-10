@@ -58,7 +58,7 @@ export function ContactSection() {
   const t = content[language];
 
   return (
-    <section className="py-24 bg-background">
+    <section id="contact" className="py-24 bg-background">
       <div className="container px-4 mx-auto max-w-3xl">
         <div className="text-center mb-16 space-y-4">
           <h2 className="text-4xl md:text-5xl font-extrabold uppercase tracking-tight">

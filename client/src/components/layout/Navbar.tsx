@@ -1,9 +1,18 @@
 import { Button } from "@/components/ui/button";
 import MainLogo from "@assets/OnlyLogo-Photoroom_1773170349439.png";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { Link, useLocation } from "wouter";
+import { Link, useLocation, useRoute } from "wouter";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+
+function scrollToContact() {
+  const el = document.getElementById("contact");
+  if (el) {
+    el.scrollIntoView({ behavior: "smooth" });
+  } else {
+    window.location.href = "/#contact";
+  }
+}
 
 export function Navbar() {
   const { language, setLanguage } = useLanguage();
@@ -61,7 +70,7 @@ export function Navbar() {
             </button>
           </div>
 
-          <Button variant="primary" className="hidden lg:inline-flex text-base h-10 px-6">
+          <Button variant="primary" className="hidden lg:inline-flex text-base h-10 px-6" onClick={scrollToContact} data-testid="button-cta-desktop">
             {t.cta}
           </Button>
         </div>
@@ -107,7 +116,7 @@ export function Navbar() {
             {t.works}
           </Link>
           <div className="p-4">
-            <Button variant="primary" className="w-full text-base h-12" onClick={closeMobileMenu}>
+            <Button variant="primary" className="w-full text-base h-12" onClick={() => { closeMobileMenu(); scrollToContact(); }} data-testid="button-cta-mobile">
               {t.cta}
             </Button>
           </div>

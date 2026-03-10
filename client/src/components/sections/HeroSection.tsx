@@ -50,7 +50,7 @@ export function HeroSection() {
             {t.desc}
           </p>
           <div className="pt-8">
-            <Button size="lg" className="w-full sm:w-auto text-xl">
+            <Button size="lg" className="w-full sm:w-auto text-xl" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} data-testid="hero-cta">
               {t.cta}
             </Button>
           </div>
