@@ -25,25 +25,20 @@ export function Navbar() {
     <nav className="border-b-4 border-foreground bg-background sticky top-0 z-50">
       <div className="container px-4 mx-auto flex items-center justify-between py-4">
         
-        {/* Logo Area */}
-        <Link href="/">
-          <a className="flex items-center gap-4 cursor-pointer group" onClick={closeMobileMenu}>
-            <div className="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center transition-transform group-hover:scale-105 duration-300">
-              <img src={MainLogo} alt="Itqan Agency Logo" className="w-full h-full object-contain" />
-            </div>
-            <div className="hidden lg:flex flex-col">
-              <span className="font-extrabold uppercase tracking-tight text-xl leading-none" style={{ fontFamily: 'Inter, sans-serif' }}>Itqan Agency</span>
-            </div>
-          </a>
+        <Link href="/" onClick={closeMobileMenu} className="flex items-center gap-4 cursor-pointer group">
+          <div className="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center transition-transform group-hover:scale-105 duration-300">
+            <img src={MainLogo} alt="Itqan Agency Logo" className="w-full h-full object-contain" />
+          </div>
+          <div className="hidden lg:flex flex-col">
+            <span className="font-extrabold uppercase tracking-tight text-xl leading-none" style={{ fontFamily: 'Inter, sans-serif' }}>Itqan Agency</span>
+          </div>
         </Link>
 
-        {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-8 font-bold uppercase tracking-wide">
           <Link href="/" className={`hover:text-primary transition-colors ${location === '/' ? 'text-primary' : ''}`}>{t.home}</Link>
           <Link href="/portfolio" className={`hover:text-primary transition-colors ${location === '/portfolio' ? 'text-primary' : ''}`}>{t.works}</Link>
         </div>
 
-        {/* Desktop Actions */}
         <div className="hidden md:flex items-center gap-4">
           <div className="flex border-2 border-foreground font-bold" dir="ltr">
             <button 
@@ -71,9 +66,7 @@ export function Navbar() {
           </Button>
         </div>
 
-        {/* Mobile Menu Toggle & Language Switcher */}
         <div className="flex md:hidden items-center gap-3">
-          {/* Mobile Language Switcher (Compact) */}
           <div className="flex border-2 border-foreground font-bold text-sm" dir="ltr">
             <button 
               onClick={() => setLanguage('en')}
@@ -98,24 +91,20 @@ export function Navbar() {
           <button 
             className="p-2 border-2 border-foreground bg-background hover:bg-foreground hover:text-background transition-colors"
             onClick={toggleMobileMenu}
+            data-testid="button-mobile-menu"
           >
             {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu Dropdown */}
       {isMobileMenuOpen && (
-        <div className="md:hidden border-t-4 border-foreground bg-background absolute top-full left-0 w-full flex flex-col font-bold uppercase tracking-wide">
-          <Link href="/">
-            <span className={`p-4 border-b-2 border-foreground/10 hover:bg-muted block cursor-pointer ${location === '/' ? 'text-primary' : ''}`} onClick={closeMobileMenu}>
-              {t.home}
-            </span>
+        <div className="md:hidden border-t-4 border-foreground bg-background absolute top-full left-0 w-full flex flex-col font-bold uppercase tracking-wide z-50">
+          <Link href="/" onClick={closeMobileMenu} className={`p-4 border-b-2 border-foreground/10 hover:bg-muted block ${location === '/' ? 'text-primary' : ''}`}>
+            {t.home}
           </Link>
-          <Link href="/portfolio">
-            <span className={`p-4 border-b-2 border-foreground/10 hover:bg-muted block cursor-pointer ${location === '/portfolio' ? 'text-primary' : ''}`} onClick={closeMobileMenu}>
-              {t.works}
-            </span>
+          <Link href="/portfolio" onClick={closeMobileMenu} className={`p-4 border-b-2 border-foreground/10 hover:bg-muted block ${location === '/portfolio' ? 'text-primary' : ''}`}>
+            {t.works}
           </Link>
           <div className="p-4">
             <Button variant="primary" className="w-full text-base h-12" onClick={closeMobileMenu}>
