@@ -1,6 +1,6 @@
 import express from "express";
-import { registerRoutes } from "../server/routes";
-import { connectDB } from "../server/db";
+import { registerRoutes } from "../server/routes.js";
+import { connectDB } from "../server/db.js";
 import { createServer } from "http";
 
 const app = express();

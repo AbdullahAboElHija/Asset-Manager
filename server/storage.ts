@@ -1,5 +1,5 @@
-import { type Project, type InsertProject } from "@shared/schema";
-import { ProjectModel } from "./db";
+import { type Project, type InsertProject } from "../shared/schema.js";
+import { ProjectModel } from "./db.js";
 
 export interface IStorage {
   getProjects(): Promise<Project[]>;
