@@ -70,7 +70,15 @@ export function ContactSection() {
           </p>
         </div>
 
-        <form className="space-y-6 border-4 border-foreground p-8 md:p-12">
+        <form 
+          action="https://formsubmit.co/hija368@gmail.com" 
+          method="POST" 
+          className="space-y-6 border-4 border-foreground p-8 md:p-12"
+        >
+          {/* FormSubmit Configuration */}
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_subject" value="New Project Inquiry!" />
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="space-y-3">
               <label className="text-sm font-bold uppercase tracking-wide text-foreground block">
@@ -78,6 +86,8 @@ export function ContactSection() {
               </label>
               <input 
                 type="text" 
+                name="name"
+                required
                 className="w-full border-2 border-foreground bg-background p-4 focus:outline-none focus:border-primary transition-colors rounded-none"
               />
             </div>
@@ -87,6 +97,8 @@ export function ContactSection() {
               </label>
               <input 
                 type="email" 
+                name="email"
+                required
                 className="w-full border-2 border-foreground bg-background p-4 focus:outline-none focus:border-primary transition-colors rounded-none"
                 dir="ltr"
               />
@@ -98,9 +110,12 @@ export function ContactSection() {
               {t.fields.type}
             </label>
             <div className="relative">
-              <select className="w-full border-2 border-foreground bg-background p-4 focus:outline-none focus:border-primary transition-colors rounded-none appearance-none cursor-pointer">
+              <select 
+                name="projectType"
+                className="w-full border-2 border-foreground bg-background p-4 focus:outline-none focus:border-primary transition-colors rounded-none appearance-none cursor-pointer"
+              >
                 {t.options.map((opt, i) => (
-                  <option key={i}>{opt}</option>
+                  <option key={i} value={opt}>{opt}</option>
                 ))}
               </select>
               <div className={`absolute top-0 ${language === 'en' ? 'right-4' : 'left-4'} h-full flex items-center pointer-events-none`}>
@@ -109,7 +124,7 @@ export function ContactSection() {
             </div>
           </div>
 
-          <Button type="button" size="lg" className="w-full h-auto py-6 text-xl mt-8">
+          <Button type="submit" size="lg" className="w-full h-auto py-6 text-xl mt-8">
             {t.cta}
           </Button>
         </form>
