@@ -53,7 +53,7 @@ export function ServicesSection() {
   }[language];
 
   return (
-    <section className="py-24 border-b-4 border-foreground bg-background">
+    <section id="services" className="py-24 border-b-4 border-foreground bg-background">
       <div className="container px-4 mx-auto">
         <div className="text-center mb-16 space-y-4">
           <h2 className="text-3xl md:text-5xl font-extrabold uppercase tracking-tight">

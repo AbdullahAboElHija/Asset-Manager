@@ -1,0 +1,7 @@
+# Itqan Agency - robots.txt
+User-agent: *
+Allow: /
+Disallow: /admin
+
+# Sitemap
+Sitemap: https://itqanaiagency.com/sitemap.xml

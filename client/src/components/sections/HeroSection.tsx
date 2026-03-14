@@ -31,7 +31,7 @@ export function HeroSection() {
   const t = content[language];
 
   return (
-    <section className="relative min-h-[90vh] flex flex-col justify-center border-b-4 border-foreground overflow-hidden bg-background">
+    <section id="hero" className="relative min-h-[90vh] flex flex-col justify-center border-b-4 border-foreground overflow-hidden bg-background">
       {/* Abstract geometric background elements */}
       <div className="absolute inset-0 pointer-events-none opacity-5">
         <div className="absolute top-0 right-0 w-[50vw] h-[100vh] border-l-2 border-foreground transform skew-x-12 translate-x-32" />

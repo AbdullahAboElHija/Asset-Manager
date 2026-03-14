@@ -4,6 +4,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useQuery } from "@tanstack/react-query";
 import type { Project } from "@shared/schema";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
+import { SEOHead } from "@/components/SEOHead";
 
 export default function Portfolio() {
   const { language } = useLanguage();
@@ -24,6 +25,19 @@ export default function Portfolio() {
 
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col">
+      <SEOHead
+        title={{
+          en: "Portfolio | Itqan Agency — Our Works",
+          ar: "أعمالنا | إتقان — معرض المشاريع",
+          he: "פורטפוליו | איתקאן — העבודות שלנו"
+        }}
+        description={{
+          en: "Explore our portfolio of AI automation, web development, and data solutions projects.",
+          ar: "استعرض معرض أعمالنا في الذكاء الاصطناعي وتطوير الويب وحلول البيانات.",
+          he: "עיינו בפורטפוליו שלנו של פרויקטים באוטומציית בינה מלאכותית, פיתוח אתרים ופתרונות נתונים."
+        }}
+        path="/portfolio"
+      />
       <Navbar />
       <main className="flex-1 py-24">
         <div className="container mx-auto px-4">

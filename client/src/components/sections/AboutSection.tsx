@@ -30,7 +30,7 @@ export function AboutSection() {
   const t = content[language];
 
   return (
-    <section className="py-24 border-b-4 border-foreground bg-foreground text-background">
+    <section id="about" className="py-24 border-b-4 border-foreground bg-foreground text-background">
       <div className="container px-4 mx-auto">
         <div className="max-w-4xl mx-auto border-4 border-primary">
           <div className="p-8 lg:p-16 bg-foreground">
