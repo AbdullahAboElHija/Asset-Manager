@@ -6,6 +6,7 @@ import { OfferSection } from "@/components/sections/OfferSection";
 import { ContactSection } from "@/components/sections/ContactSection";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 export default function Home() {
   return (
@@ -13,12 +14,12 @@ export default function Home() {
       <Navbar />
       
       <main>
-        <HeroSection />
-        <ServicesSection />
-        <AboutSection />
-        <ValuePropSection />
-        <OfferSection />
-        <ContactSection />
+        <ScrollReveal><HeroSection /></ScrollReveal>
+        <ScrollReveal><ServicesSection /></ScrollReveal>
+        <ScrollReveal><AboutSection /></ScrollReveal>
+        <ScrollReveal><ValuePropSection /></ScrollReveal>
+        <ScrollReveal><OfferSection /></ScrollReveal>
+        <ScrollReveal><ContactSection /></ScrollReveal>
       </main>
 
       <Footer />

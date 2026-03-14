@@ -56,7 +56,8 @@ export function OfferSection() {
           </div>
 
           <div className="pt-10 border-t-2 border-foreground/50">
-            <Button size="lg" className="w-full sm:w-auto text-xl px-12 py-8" variant="primary" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} data-testid="offer-cta">
+            {/* @ts-ignore - Reverting to primary as original code */}
+            <Button size="lg" className="w-full sm:w-auto text-xl px-12 py-8 bg-primary text-primary-foreground hover:scale-105 hover:bg-primary/90 hover:shadow-[0_0_30px_theme('colors.primary.DEFAULT')] transition-all duration-300" variant="primary" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} data-testid="offer-cta">
               {t.cta}
             </Button>
             <p className="mt-6 text-sm text-gray-500 font-medium uppercase tracking-wide">

@@ -1,4 +1,5 @@
 import { useLanguage } from "@/contexts/LanguageContext";
+import { Mail, Instagram } from "lucide-react";
 
 export function Footer() {
   const { language } = useLanguage();
@@ -32,6 +33,27 @@ export function Footer() {
             <span className="text-sm font-medium text-gray-400 uppercase tracking-widest">
               {t.desc}
             </span>
+          </div>
+
+          <div className="flex items-center gap-6">
+            <a 
+              href="mailto:itqanaiagency@gmail.com" 
+              className="text-gray-400 hover:text-primary transition-colors"
+              target="_blank" 
+              rel="noopener noreferrer"
+              aria-label="Email Us"
+            >
+              <Mail className="w-6 h-6" />
+            </a>
+            <a 
+              href="https://www.instagram.com/itqanaiagency/" 
+              className="text-gray-400 hover:text-primary transition-colors"
+              target="_blank" 
+              rel="noopener noreferrer"
+              aria-label="Follow us on Instagram"
+            >
+              <Instagram className="w-6 h-6" />
+            </a>
           </div>
 
         </div>
