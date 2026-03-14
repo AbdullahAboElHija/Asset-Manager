@@ -3,6 +3,7 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage.js";
 import { insertProjectSchema } from "../shared/schema.js";
 import mongoose from "mongoose";
+import crypto from "crypto";
 
 function requireAdmin(req: Request, res: Response, next: NextFunction) {
   const authHeader = req.headers.authorization;
@@ -11,7 +12,17 @@ function requireAdmin(req: Request, res: Response, next: NextFunction) {
     return;
   }
   const token = authHeader.slice(7);
-  if (token !== process.env.ADMIN_PASSWORD) {
+  const expectedPassword = process.env.ADMIN_PASSWORD || "";
+  
+  try {
+    const tokenBuffer = Buffer.from(token);
+    const expectedBuffer = Buffer.from(expectedPassword);
+    
+    if (tokenBuffer.length !== expectedBuffer.length || !crypto.timingSafeEqual(tokenBuffer, expectedBuffer)) {
+      res.status(403).json({ message: "Forbidden" });
+      return;
+    }
+  } catch (e) {
     res.status(403).json({ message: "Forbidden" });
     return;
   }
@@ -34,11 +45,21 @@ export async function registerRoutes(
 
   app.post("/api/admin/login", (req, res) => {
     const { password } = req.body;
-    if (password === process.env.ADMIN_PASSWORD) {
-      res.json({ success: true });
-    } else {
-      res.status(401).json({ success: false, message: "Invalid password" });
+    const expectedPassword = process.env.ADMIN_PASSWORD || "";
+    
+    try {
+      const passwordBuffer = Buffer.from(password || "");
+      const expectedBuffer = Buffer.from(expectedPassword);
+      
+      if (passwordBuffer.length === expectedBuffer.length && crypto.timingSafeEqual(passwordBuffer, expectedBuffer)) {
+        res.json({ success: true });
+        return;
+      }
+    } catch (e) {
+      // Ignore buffer errors and fall through to unauthorized
     }
+    
+    res.status(401).json({ success: false, message: "Invalid password" });
   });
 
   app.post("/api/projects", requireAdmin, async (req, res) => {

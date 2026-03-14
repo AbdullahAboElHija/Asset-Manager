@@ -38,12 +38,10 @@ export function Footer() {
           <div className="flex items-center gap-6">
             <a 
               href="mailto:itqanaiagency@gmail.com" 
-              className="text-gray-400 hover:text-primary transition-colors"
-              target="_blank" 
-              rel="noopener noreferrer"
+              className="text-gray-400 font-bold hover:text-primary transition-colors text-sm"
               aria-label="Email Us"
             >
-              <Mail className="w-6 h-6" />
+              itqanaiagency@gmail.com
             </a>
             <a 
               href="https://www.instagram.com/itqanaiagency/" 
